@@ -28,7 +28,11 @@ class ThirdViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let secondVC = segue.destination as? SecondViewController {
+            secondVC.story = randomStory()
+        }
+    }
     /*
     // MARK: - Navigation
 

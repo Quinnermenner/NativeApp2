@@ -48,4 +48,20 @@ extension UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    func randomStory() -> Story {
+        let fileManager = FileManager.default
+        let bundleURL = Bundle.main.bundleURL
+        let assetURL = bundleURL.appendingPathComponent("stories")
+        let contents = try! fileManager.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
+        let random = Int(arc4random_uniform(UInt32(contents.count)))
+        var randomStory = contents[random].lastPathComponent.characters.split{$0 == "."}.map(String.init)
+        var res = ""
+        if let asset = NSDataAsset(name: randomStory[0]), let string = String(data:asset.data, encoding: String.Encoding.utf8){
+            res = string
+        }
+        let story = Story(stream: res)
+        return story
+    }
+
 }

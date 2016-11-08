@@ -16,6 +16,7 @@
 		3993C3F41DD0A93C0015ACB7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993C3F31DD0A93C0015ACB7 /* SecondViewController.swift */; };
 		3993C3F81DD0C8C90015ACB7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993C3F71DD0C8C90015ACB7 /* Extensions.swift */; };
 		3993C3FA1DD1E3ED0015ACB7 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993C3F91DD1E3ED0015ACB7 /* ThirdViewController.swift */; };
+		3993C3FC1DD220410015ACB7 /* stories in Resources */ = {isa = PBXBuildFile; fileRef = 3993C3FB1DD220410015ACB7 /* stories */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3993C3F31DD0A93C0015ACB7 /* SecondViewController.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3993C3F71DD0C8C90015ACB7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3993C3F91DD1E3ED0015ACB7 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		3993C3FB1DD220410015ACB7 /* stories */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stories; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				3993C3F91DD1E3ED0015ACB7 /* ThirdViewController.swift */,
 				3993C3F11DD0A5E30015ACB7 /* Story.swift */,
 				3993C3E31DD0A5280015ACB7 /* Main.storyboard */,
+				3993C3FB1DD220410015ACB7 /* stories */,
 				3993C3E61DD0A5280015ACB7 /* Assets.xcassets */,
 				3993C3E81DD0A5280015ACB7 /* LaunchScreen.storyboard */,
 				3993C3EB1DD0A5280015ACB7 /* Info.plist */,
@@ -136,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3993C3FC1DD220410015ACB7 /* stories in Resources */,
 				3993C3EA1DD0A5280015ACB7 /* LaunchScreen.storyboard in Resources */,
 				3993C3E71DD0A5280015ACB7 /* Assets.xcassets in Resources */,
 				3993C3E51DD0A5280015ACB7 /* Main.storyboard in Resources */,
