@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,20 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+     func randomStory() -> Story{
+        var res = ""
+        if let asset = NSDataAsset(name: "madlib0_simple"), let string = String(data:asset.data, encoding: String.Encoding.utf8){
+            res = string
+        }
+        let story = Story(stream: res)
+        return story
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let secondVC = segue.destination as? SecondViewController{
+        secondVC.story = randomStory()
+        }
+    }
 }
 
