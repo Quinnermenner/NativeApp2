@@ -50,14 +50,11 @@ extension UIViewController {
     }
     
     func randomStory() -> Story {
-        let fileManager = FileManager.default
-        let bundleURL = Bundle.main.bundleURL
-        let assetURL = bundleURL.appendingPathComponent("stories")
-        let contents = try! fileManager.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
-        let random = Int(arc4random_uniform(UInt32(contents.count)))
-        var randomStory = contents[random].lastPathComponent.characters.split{$0 == "."}.map(String.init)
+        let storyBundle = Bundle.main.paths(forResourcesOfType: "txt", inDirectory: "stories.bundle")
+        let random = Int(arc4random_uniform(UInt32(storyBundle.count)))
+        let storyText = try? String(contentsOfFile: storyBundle[random], encoding: String.Encoding.utf8)
         var res = ""
-        if let asset = NSDataAsset(name: randomStory[0]), let string = String(data:asset.data, encoding: String.Encoding.utf8){
+        if let string = storyText {
             res = string
         }
         let story = Story(stream: res)
