@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="434" y="134"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="aAO-e2-ikX">
@@ -163,7 +163,10 @@
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ0-WC-vBT">
                                                                 <rect key="frame" x="250" y="10" width="85" height="30"/>
-                                                                <state key="normal" title="Submit"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                <state key="normal" title="Submit">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="confirmWord:" destination="hTu-iB-Mx8" eventType="touchUpInside" id="M9m-AR-mgg"/>
                                                                 </connections>
@@ -241,7 +244,10 @@
                                                     <constraint firstAttribute="height" constant="30" id="Mjp-n1-zzp"/>
                                                     <constraint firstAttribute="width" constant="140" id="ywl-E6-fX8"/>
                                                 </constraints>
-                                                <state key="normal" title="See your story!"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="See your story!">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="T9Y-JN-Gxc" kind="show" identifier="segueToThirdVC" id="MlQ-dL-7hA"/>
                                                 </connections>
@@ -289,30 +295,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-wX-1wk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="mRo-q2-spx" id="MTi-G5-HHb"/>
-                                    <outlet property="delegate" destination="mRo-q2-spx" id="bN6-O4-NZI"/>
-                                </connections>
-                            </pickerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wmx-GK-vkR">
+                                <rect key="frame" x="27.5" y="193.5" width="320" height="280.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKk-3f-Uzb">
+                                        <rect key="frame" x="91.5" y="0.0" width="137" height="34.5"/>
+                                        <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zoe-cS-Fi0">
+                                        <rect key="frame" x="0.0" y="34.5" width="320" height="216"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-wX-1wk">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="mRo-q2-spx" id="MTi-G5-HHb"/>
+                                                    <outlet property="delegate" destination="mRo-q2-spx" id="bN6-O4-NZI"/>
+                                                </connections>
+                                            </pickerView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="cxs-wX-1wk" secondAttribute="trailing" id="3gP-ua-qr1"/>
+                                            <constraint firstAttribute="bottom" secondItem="cxs-wX-1wk" secondAttribute="bottom" id="KZ9-lK-Wmn"/>
+                                            <constraint firstItem="cxs-wX-1wk" firstAttribute="top" secondItem="zoe-cS-Fi0" secondAttribute="top" id="eRo-0T-7hR"/>
+                                            <constraint firstItem="cxs-wX-1wk" firstAttribute="leading" secondItem="zoe-cS-Fi0" secondAttribute="leading" id="si1-KX-1uv"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCW-IN-rm2">
+                                        <rect key="frame" x="145" y="250.5" width="30" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Go!">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonSegue:" destination="mRo-q2-spx" eventType="touchUpInside" id="0Mu-xd-ASQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cxs-wX-1wk" firstAttribute="top" secondItem="Ta2-cJ-gzZ" secondAttribute="bottom" id="8NA-CU-VUH"/>
-                            <constraint firstAttribute="trailing" secondItem="cxs-wX-1wk" secondAttribute="trailing" id="FFn-tm-iNT"/>
-                            <constraint firstItem="cxs-wX-1wk" firstAttribute="leading" secondItem="IeS-QY-tIe" secondAttribute="leading" id="ipB-g2-Qdb"/>
-                            <constraint firstItem="SMK-do-Qce" firstAttribute="top" secondItem="cxs-wX-1wk" secondAttribute="bottom" id="jDX-0R-awr"/>
+                            <constraint firstItem="wmx-GK-vkR" firstAttribute="centerX" secondItem="IeS-QY-tIe" secondAttribute="centerX" id="owU-36-5eW"/>
+                            <constraint firstItem="wmx-GK-vkR" firstAttribute="centerY" secondItem="IeS-QY-tIe" secondAttribute="centerY" id="roT-Le-EZW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="storyPicker" destination="cxs-wX-1wk" id="Sog-FR-eIP"/>
-                        <segue destination="hTu-iB-Mx8" kind="show" identifier="segueToSecondVC" id="ilE-YR-PW7"/>
+                        <segue destination="hTu-iB-Mx8" kind="show" identifier="segueToSecondVC" id="YCW-K4-kRw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3la-IE-5U7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="1043"/>
+            <point key="canvasLocation" x="1116" y="134"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="Wjy-gj-73N">
@@ -363,8 +400,11 @@
                                         <rect key="frame" x="0.0" y="523" width="343" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlR-0O-PV8">
-                                                <rect key="frame" x="136.5" y="25" width="70" height="30"/>
-                                                <state key="normal" title="New story"/>
+                                                <rect key="frame" x="134" y="25" width="75" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="New story">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="hTu-iB-Mx8" kind="show" id="78d-wf-pdC"/>
                                                 </connections>
@@ -429,6 +469,6 @@
         <image name="madlibs" width="282" height="308"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ilE-YR-PW7"/>
+        <segue reference="YCW-K4-kRw"/>
     </inferredMetricsTieBreakers>
 </document>

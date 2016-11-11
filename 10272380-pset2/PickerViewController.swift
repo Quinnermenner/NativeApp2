@@ -12,22 +12,22 @@ class PickerViewController: UIViewController {
 
     @IBOutlet weak var storyPicker: UIPickerView!
     var pickerList = [String]()
-    var pickedRow = String()
 
+    @IBAction func buttonSegue(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueToSecondVC", sender: self)
+    }
+    var pickedRow = "Random"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        pickerList.append("Random")
+        pickerList.append(pickedRow)
         let pickerBundle = Bundle.main.paths(forResourcesOfType: "txt", inDirectory: "stories.bundle")
         for item in pickerBundle {
-            let stringTitle = (item as NSString).lastPathComponent
-//            let title = URL(string: item)
-//            let stringTitle = title?.lastPathComponent
-            pickerList.append(stringTitle)
+            pickerList.append(item)
         }
-        print(pickerList)
         
         
     }
@@ -39,7 +39,13 @@ class PickerViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let secondVC = segue.destination as? SecondViewController{
-            secondVC.story = randomStory()
+            if pickedRow == "Random" {
+                secondVC.story = randomStory()
+            }
+            else {
+                let storyText = try? String(contentsOfFile: pickedRow, encoding: String.Encoding.utf8)
+                secondVC.story = Story(stream: storyText!)
+            }
         }
     }
 
@@ -63,7 +69,7 @@ extension PickerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return pickerList.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerList[row]
+        return (pickerList[row] as NSString).lastPathComponent
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickedRow = pickerList[row]

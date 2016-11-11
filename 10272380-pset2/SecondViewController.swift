@@ -18,6 +18,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     var wordArray = [String]()
     var placeholderArray = [String]()
     @IBOutlet weak var inputWordTable: UITableView!
+    var allowBlanks = false
     
 
     
@@ -34,16 +35,23 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func confirmWord(_ sender: Any) {
-        if let remainingCount = story?.getPlaceholderRemainingCount() {
-            if remainingCount == 0 {
+        if let filledBool = story?.isFilledIn(), let placeWord = inputWord.text {
+            if filledBool {
                 performSegue(withIdentifier: "segueToThirdVC", sender: self)
             }
-            if remainingCount > 0 {
-                wordArray.insert(inputWord.text!, at: 0)
+            else if placeWord.isEmpty && allowBlanks == false{
+                let alertController = UIAlertController(title: "Empty input!", message: "Please provide a replacement for the placeholder.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Will do!", style: .default, handler: nil))
+                alertController.addAction(UIAlertAction(title: "Allow Blanks!", style: .default, handler: { (action: UIAlertAction!) in self.allowBlanks = true }))
+                present(alertController, animated: true, completion: nil)
+                
+                }
+            else {
+                wordArray.insert(placeWord, at: 0)
                 if let nextPlaceholder = story?.getNextPlaceholder() {
                     placeholderArray.insert(nextPlaceholder.lowercased(), at: 0)
                 }
-                story?.fillInPlaceholder(word: inputWord.text!)
+                story?.fillInPlaceholder(word: placeWord)
                 inputWord.text = ""
                 loadLabels()
                 inputWordTable.reloadData()
