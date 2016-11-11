@@ -17,6 +17,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var secondStoryButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     var wordArray = [String]()
+    var placeholderArray = [String]()
     @IBOutlet weak var inputWordTable: UITableView!
     
 
@@ -39,12 +40,13 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
                 performSegue(withIdentifier: "segueToThirdVC", sender: self)
             }
             if remainingCount > 0 {
+                wordArray.insert(inputWord.text!, at: 0)
+                if let nextPlaceholder = story?.getNextPlaceholder() {
+                    placeholderArray.insert(nextPlaceholder.lowercased(), at: 0)
+                }
                 story?.fillInPlaceholder(word: inputWord.text!)
-                wordArray.append(inputWord.text!)
-                print(wordArray)
                 inputWord.text = ""
                 loadLabels()
-                print("Before reloading")
                 inputWordTable.reloadData()
             }
         }
@@ -127,19 +129,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
 extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(wordArray.count)
-       return wordArray.count
+        return wordArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Reloading cells")
         let word = wordArray[indexPath.row]
-        print(word)
+        let placeholder = placeholderArray[indexPath.row]
         
         let cell = inputWordTable.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         
         cell.textLabel?.text = word
+        cell.detailTextLabel?.text = placeholder
         
         return cell
-
     }
 }
