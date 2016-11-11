@@ -17,6 +17,7 @@
 		3993C3F81DD0C8C90015ACB7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993C3F71DD0C8C90015ACB7 /* Extensions.swift */; };
 		3993C3FA1DD1E3ED0015ACB7 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993C3F91DD1E3ED0015ACB7 /* ThirdViewController.swift */; };
 		3993C3FC1DD220410015ACB7 /* stories.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3993C3FB1DD220410015ACB7 /* stories.bundle */; };
+		39D414BF1DD4C58D003D82C6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D414BE1DD4C58D003D82C6 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3993C3F71DD0C8C90015ACB7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3993C3F91DD1E3ED0015ACB7 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		3993C3FB1DD220410015ACB7 /* stories.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = stories.bundle; path = "../../../../../../../../Desktop/Native App Studio/10272380-pset2/10272380-pset2/stories.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39D414BE1DD4C58D003D82C6 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				3993C3DF1DD0A5280015ACB7 /* AppDelegate.swift */,
 				3993C3F71DD0C8C90015ACB7 /* Extensions.swift */,
+				39D414BE1DD4C58D003D82C6 /* TableViewCell.swift */,
 				3993C3E11DD0A5280015ACB7 /* ViewController.swift */,
 				3993C3F31DD0A93C0015ACB7 /* SecondViewController.swift */,
 				3993C3F91DD1E3ED0015ACB7 /* ThirdViewController.swift */,
@@ -158,6 +161,7 @@
 				3993C3E21DD0A5280015ACB7 /* ViewController.swift in Sources */,
 				3993C3E01DD0A5280015ACB7 /* AppDelegate.swift in Sources */,
 				3993C3F81DD0C8C90015ACB7 /* Extensions.swift in Sources */,
+				39D414BF1DD4C58D003D82C6 /* TableViewCell.swift in Sources */,
 				3993C3F21DD0A5E30015ACB7 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

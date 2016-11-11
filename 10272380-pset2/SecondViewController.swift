@@ -16,20 +16,15 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var inputWord: UITextField!
     @IBOutlet weak var secondStoryButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    var wordArray = [String]()
+    @IBOutlet weak var inputWordTable: UITableView!
     
-    func printStory(){
-        let storyText = story?.toString()
-        print(storyText!)
-    }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        inputWord.delegate = self
-
         // Do any additional setup after loading the view.
-        printStory()
         loadLabels()
     }
 
@@ -45,11 +40,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             }
             if remainingCount > 0 {
                 story?.fillInPlaceholder(word: inputWord.text!)
+                wordArray.append(inputWord.text!)
+                print(wordArray)
                 inputWord.text = ""
                 loadLabels()
-                printStory()
+                print("Before reloading")
+                inputWordTable.reloadData()
             }
         }
+    }
+    @IBAction func inputWordReturned(_ sender: UITextField) {
+        confirmWord(self)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -121,16 +122,24 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             thirdVC.story = story
         }
     }
+}
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(wordArray.count)
+       return wordArray.count
     }
-    */
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("Reloading cells")
+        let word = wordArray[indexPath.row]
+        print(word)
+        
+        let cell = inputWordTable.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        
+        cell.textLabel?.text = word
+        
+        return cell
 
+    }
 }
