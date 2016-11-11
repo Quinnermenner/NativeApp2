@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		392CB7BC1DD6294B00038323 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CB7BB1DD6294B00038323 /* PickerViewController.swift */; };
 		3993C3E01DD0A5280015ACB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993C3DF1DD0A5280015ACB7 /* AppDelegate.swift */; };
 		3993C3E21DD0A5280015ACB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993C3E11DD0A5280015ACB7 /* ViewController.swift */; };
 		3993C3E51DD0A5280015ACB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3993C3E31DD0A5280015ACB7 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		392CB7BB1DD6294B00038323 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		3993C3DC1DD0A5280015ACB7 /* 10272380-pset2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "10272380-pset2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3993C3DF1DD0A5280015ACB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3993C3E11DD0A5280015ACB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				3993C3DF1DD0A5280015ACB7 /* AppDelegate.swift */,
 				3993C3F71DD0C8C90015ACB7 /* Extensions.swift */,
+				392CB7BB1DD6294B00038323 /* PickerViewController.swift */,
 				39D414BE1DD4C58D003D82C6 /* TableViewCell.swift */,
 				3993C3E11DD0A5280015ACB7 /* ViewController.swift */,
 				3993C3F31DD0A93C0015ACB7 /* SecondViewController.swift */,
@@ -158,6 +161,7 @@
 			files = (
 				3993C3FA1DD1E3ED0015ACB7 /* ThirdViewController.swift in Sources */,
 				3993C3F41DD0A93C0015ACB7 /* SecondViewController.swift in Sources */,
+				392CB7BC1DD6294B00038323 /* PickerViewController.swift in Sources */,
 				3993C3E21DD0A5280015ACB7 /* ViewController.swift in Sources */,
 				3993C3E01DD0A5280015ACB7 /* AppDelegate.swift in Sources */,
 				3993C3F81DD0C8C90015ACB7 /* Extensions.swift in Sources */,

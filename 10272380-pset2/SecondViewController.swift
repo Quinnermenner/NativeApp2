@@ -14,7 +14,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var wordDesc: UILabel!
     @IBOutlet weak var inputWord: UITextField!
-    @IBOutlet weak var secondStoryButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     var wordArray = [String]()
     var placeholderArray = [String]()
@@ -51,18 +50,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
     @IBAction func inputWordReturned(_ sender: UITextField) {
         confirmWord(self)
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        secondStoryButton.isHidden = false
-        secondStoryButton.isEnabled = true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        secondStoryButton.isHidden = true
-        secondStoryButton.isEnabled = false
     }
     
     func loadLabels() {

@@ -57,7 +57,7 @@
                                                             <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="hTu-iB-Mx8" kind="show" id="3DC-hx-uzd"/>
+                                                            <segue destination="mRo-q2-spx" kind="show" id="vsE-of-aQF"/>
                                                         </connections>
                                                     </button>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rt-mn-NYw">
@@ -182,16 +182,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHZ-CF-nyW">
-                                                        <rect key="frame" x="0.0" y="180" width="335" height="36"/>
-                                                        <fontDescription key="fontDescription" name="AlNile" family="Al Nile" pointSize="17"/>
-                                                        <state key="normal" title="See your story!"/>
-                                                        <connections>
-                                                            <segue destination="T9Y-JN-Gxc" kind="show" id="o8z-rf-Uq7"/>
-                                                        </connections>
-                                                    </button>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-e3-owC">
-                                                        <rect key="frame" x="0.0" y="216" width="335" height="276"/>
+                                                        <rect key="frame" x="0.0" y="180" width="335" height="312"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Qbz-NC-l8c" detailTextLabel="7TE-2n-RrJ" style="IBUITableViewCellStyleSubtitle" id="Ih1-pa-yam">
@@ -276,7 +268,6 @@
                     <connections>
                         <outlet property="inputWord" destination="u79-lR-Qct" id="OiY-Jr-7OF"/>
                         <outlet property="inputWordTable" destination="qzI-e3-owC" id="8jG-LM-gAi"/>
-                        <outlet property="secondStoryButton" destination="xHZ-CF-nyW" id="Gcn-eS-EaS"/>
                         <outlet property="submitButton" destination="UQ0-WC-vBT" id="N1q-cF-CZI"/>
                         <outlet property="wordCount" destination="zp2-7b-NRf" id="pAY-Pc-ni0"/>
                         <outlet property="wordDesc" destination="pr9-vw-ffQ" id="Ius-jI-fqU"/>
@@ -285,6 +276,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2b-8Y-aEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1780" y="134.48275862068968"/>
+        </scene>
+        <!--Picker View Controller-->
+        <scene sceneID="sWF-sb-PBs">
+            <objects>
+                <viewController id="mRo-q2-spx" customClass="PickerViewController" customModule="_0272380_pset2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ta2-cJ-gzZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="SMK-do-Qce"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IeS-QY-tIe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxs-wX-1wk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mRo-q2-spx" id="MTi-G5-HHb"/>
+                                    <outlet property="delegate" destination="mRo-q2-spx" id="bN6-O4-NZI"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cxs-wX-1wk" firstAttribute="top" secondItem="Ta2-cJ-gzZ" secondAttribute="bottom" id="8NA-CU-VUH"/>
+                            <constraint firstAttribute="trailing" secondItem="cxs-wX-1wk" secondAttribute="trailing" id="FFn-tm-iNT"/>
+                            <constraint firstItem="cxs-wX-1wk" firstAttribute="leading" secondItem="IeS-QY-tIe" secondAttribute="leading" id="ipB-g2-Qdb"/>
+                            <constraint firstItem="SMK-do-Qce" firstAttribute="top" secondItem="cxs-wX-1wk" secondAttribute="bottom" id="jDX-0R-awr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="storyPicker" destination="cxs-wX-1wk" id="Sog-FR-eIP"/>
+                        <segue destination="hTu-iB-Mx8" kind="show" identifier="segueToSecondVC" id="ilE-YR-PW7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3la-IE-5U7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="1043"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="Wjy-gj-73N">
@@ -401,7 +429,6 @@
         <image name="madlibs" width="282" height="308"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MlQ-dL-7hA"/>
-        <segue reference="3DC-hx-uzd"/>
+        <segue reference="ilE-YR-PW7"/>
     </inferredMetricsTieBreakers>
 </document>
